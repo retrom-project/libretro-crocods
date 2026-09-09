@@ -977,6 +977,11 @@ bool retro_unserialize(const void *data_, size_t size)
 {
     LireSnapshotMem(&gb, (u8 *)data_);
 
+    /* The newly loaded disk opens its autorun picker before the snapshot is
+     * applied. It is frontend state, so it must not cover the restored game. */
+    gb.runApplication = NULL;
+    gb.wait_key_released = 1;
+
     return true;
 }
 
@@ -1000,4 +1005,3 @@ void retro_cheat_set(unsigned index, bool enabled, const char *code)
     (void)enabled;
     (void)code;
 }
-
