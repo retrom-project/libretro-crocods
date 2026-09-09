@@ -8,3 +8,6 @@
 *.dylib
 *.dsk
 *.kcr
+
+/build/
+*.bc
