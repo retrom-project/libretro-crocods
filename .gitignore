@@ -11,3 +11,5 @@
 
 /build/
 *.bc
+
+__pycache__/
